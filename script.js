@@ -8,78 +8,47 @@ function writePassword() {
 
   passwordText.value = password;
 
-
-
-
-  
-
-//Add event listener to execute writePassword function when button is clicked
-
-//When writePassword executes, first execute nested function generatePassword()
-//generatePassword will start series of prompt/confirm boxes
-// first prompt: Required lenght of password (minimum 8 and max 128 characters)
-// second confirm box: Do you want to use upperCase letters? yes or no
-//third confirm box: Do you want to use lowerCase letters? yes or no
-//fourth confirm box: Do you want to use numbers? yes or no
-//fifth confirm box: Do you want to use special characters? yes or no
-
-//validate input from prompt/confirm boxes
-
-//start function that will take selected input types to generate a password
-
-//When password has been generated, display it in the textbox (id = "password")
-
-
 }
+
+
+function generatePassword() {
+
+  //prompt boxes to get password criteria. Placed within the generatePassword() function to be called first
+  var lengthInput = prompt("How many characters long do you want the password to be? Choose between 8 and 128 charcters");
+  var includeLowerCase = confirm("Include Lowercase letters? Click ok to include, click cancel to not include");
+  var includeUpperCase = confirm("Include Uppercase letters? Click ok to include, click cancel to not include");
+  var includeNumber = confirm("Include numbers? Click ok to include, click cancel to not include");
+  var includeSpecialChar = confirm("Include Special Characters? Click ok to include, click cancel to not include");
+
+
+
+//declare variables with all possible options for lowercase letters, uppercase letters, numbers and special characters
+var lowerCase = "abcdefghijklmnopqrstuvwxyz";
+var upperCase = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
+var num = "0123456789";
+var specialChar = "!@#$%^&*(){}[]=<>/,.|~?";
+var passwordLength = parseInt(lengthInput); //transform password lenght input into integar value
+
+
+//Declare variable for all possible charactersa to draw from for password generation
+//for each password criteria response, if user response = true, add to characters array, if false don't include
+var characters = 
+(includeLowerCase === true) ? characters += lowerCase : '';
+(includeUpperCase === true) ? characters += upperCase : '';
+(includeNumber === true) ? characters += num : '';
+(includeSpecialChar === true) ? characters += specialChar : '';
+
+//initialze variable to hold generated password
+  var pwd = "";
+
+  //for loop to add random character from characters array to pwd varible till choosen password lenght is reached
+  for(var i = 0; i<passwordLength; i++){
+    pwd += characters.charAt(Math.floor(Math.random() * characters.length));
+  }
+  return pwd;
+}
+
 
 // Add event listener to generate button
 generateBtn.addEventListener("click", writePassword);
 
-
-
-//prompt boxes to get password criteria
-
-var passwordLenght = parseInt(lenghtInput);
-     var lenghtInput = prompt("How many characters long do you want the password to be? Choose between 8 and 128 charcters");
-var includeLowerCase = confirm("Include Lowercase letters? Click ok to include, click cancel to not include");
-var includeUpperCase = confirm("Include Uppercase letters? Click ok to include, click cancel to not include");
-var includeNumber = confirm("Include numbers? Click ok to include, click cancel to not include");
-var includeSpecialChar = confirm("Include Special Characters? Click ok to include, click cancel to not include");
-
-
-
-
-
-
-
-//Create an object with each property value being a function, each generating a random character 
-//from lowercase, uppercase, numbers and special characters
-var randomCharacter = {
-  lower: yesLowerCase,
-  upper: yesUpperCase,
-  num: yesNumber,
-  specialChar: yesSpecialCharacters
-};
-
-
-//this function will return a random lowercase letter using the HTML character set
- function yesLowerCase () {
-   return String.fromCharCode(Math.floor(Math.random() * 26) + 97);
- }
-
- //this function will return a random uppercase letter using the HTML character set
- function yesUpperCase () {
-   return String.fromCharCode(Math.floor(Math.random() * 26) + 65);
- }
-
-
-  //this function will return a random numeric character between 0 and 9 using the HTML character set
- function yesNumber () {
-   return String.fromCharCode(Math.floor(Math.random() * 10) +48);
- }
-
- //this function will loop through string of special characters to return random character
- function yesSpecialCharacters () {
-   var specialCharacters = '!@#$%^&*(){}[]=<>/,.|~?';
-   return specialCharacters[Math.floor(Math.random() * specialCharacters.length)];
- }
