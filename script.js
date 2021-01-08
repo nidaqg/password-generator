@@ -19,14 +19,14 @@ function generatePassword() {
   var lengthInput = prompt("How many characters long do you want the password to be? Choose between 8 and 128 characters");
   var passwordLength = parseInt(lengthInput); //transform password lenght input into integar value
 //if statement to check validity of password length input
-if (passwordLength < 8 || passwordLength > 128)  {
-  return alert("invalide password length, try again!");
+if (Number.isNaN(passwordLength) || passwordLength < 8 || passwordLength > 128)  {
+  alert("invalid password input or length, try again!");
 } else {
   var includeLowerCase = confirm("Include Lowercase letters? Click ok to include, click cancel to not include");
   var includeUpperCase = confirm("Include Uppercase letters? Click ok to include, click cancel to not include");
   var includeNumber = confirm("Include numbers? Click ok to include, click cancel to not include");
   var includeSpecialChar = confirm("Include Special Characters? Click ok to include, click cancel to not include");
-}
+
 
 
   //declare variables with all possible options for lowercase letters, uppercase letters, numbers and special characters
@@ -44,11 +44,19 @@ if (passwordLength < 8 || passwordLength > 128)  {
   } else {
     //Declare variable for all possible characters to draw from for password generation
     //for each password criteria response, if user response = true, add to charOptions variable, if false don't include
-    var charOptions =
-      (includeLowerCase === true) ? charOptions += lowerCase : '';
-    (includeUpperCase === true) ? charOptions += upperCase : '';
-    (includeNumber === true) ? charOptions += num : '';
-    (includeSpecialChar === true) ? charOptions += specialChar : '';
+    var charOptions = '';
+    if (includeLowerCase === true) {
+      charOptions += lowerCase
+    }
+    if (includeUpperCase === true) {
+      charOptions += upperCase
+    }
+    if (includeNumber === true) {
+      charOptions += num
+    }
+    if (includeSpecialChar === true) {
+      charOptions += specialChar
+    }
   }
 
   //initialze variable to hold generated password
@@ -59,6 +67,7 @@ if (passwordLength < 8 || passwordLength > 128)  {
     finalPassword += charOptions.charAt(Math.floor(Math.random() * charOptions.length));
   }
   return finalPassword;
+}
 }
 
 
