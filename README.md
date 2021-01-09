@@ -10,7 +10,7 @@ Once valid input has been entered, the application will generate a random passwo
 For the creation of this application, very simple html and css was used and all the actual functionality of the app was achieved through the use of Javascript. I realized early on that there were multiple ways to achieve the desired result therefore I endeavored to get the result I wanted using the simplest and cleanest code I could.
 
 The finished application has the following UI:
-
+![Page Demo](Assets/user-interface-demo.png)
 
 
 The GitHub repository of the application can be found at the following link:
@@ -19,5 +19,5 @@ https://github.com/nidaqg/password-generator
 
 The deployed application can be found at the following link:
 
-
+https://nidaqg.github.io/password-generator/ 
 
