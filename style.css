@@ -41,6 +41,7 @@ header {
   max-width: 800px;
   padding: 30px 40px;
   text-align: center;
+  border: solid hsl(210, 90%, 15%);
 }
 
 .card-header::after {
@@ -75,11 +76,11 @@ header {
 
 .btn {
   border: none;
-  background-color: rgb(227, 230, 240);
+  background-color: hsl(210, 90%, 15%);
   border-radius: 25px;
   box-shadow: rgba(0, 0, 0, 0.1) 0px 1px 6px 0px rgba(0, 0, 0, 0.2) 0px 1px 1px
     0px;
-  color: hsl(0, 3%, 6%);
+  color: hsl(180, 31%, 94%);
   display: inline-block;
   font-size: 22px;
   line-height: 22px;
