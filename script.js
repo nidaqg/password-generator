@@ -19,11 +19,11 @@ function generatePassword() {
   var lengthInput = prompt("Please input desired password length. Choose between 8 and 128 characters");
   var passwordLength = parseInt(lengthInput); //transform password lenght input into integar value
 //if statement to check validity of password length input
-  if (Number.isNaN(passwordLength) || passwordLength < 8 || passwordLength > 128) {
+  if (lengthInput === null) {
+    alert("Please enter a password length to start");
+    return finalPassword = '';
+  } else if (Number.isNaN(passwordLength) || passwordLength < 8 || passwordLength > 128) {
   alert("invalid password input or length, try again!");
-  return finalPassword = '';
-} else if (lengthInput = '') {
-  alert("Please enter a password length to start");
   return finalPassword = '';
 } else {
   var includeLowerCase = confirm("Include Lowercase letters? Click ok to include, click cancel to not include");
@@ -60,6 +60,7 @@ function generatePassword() {
       charOptions += specialChar
     }
   }
+
 
   //initialze variable to hold generated password
   var finalPassword = "";
