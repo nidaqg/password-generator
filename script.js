@@ -19,8 +19,12 @@ function generatePassword() {
   var lengthInput = prompt("Please input desired password length. Choose between 8 and 128 characters");
   var passwordLength = parseInt(lengthInput); //transform password lenght input into integar value
 //if statement to check validity of password length input
-  if (Number.isNaN(passwordLength) || passwordLength < 8 || passwordLength > 128)  {
+  if (Number.isNaN(passwordLength) || passwordLength < 8 || passwordLength > 128) {
   alert("invalid password input or length, try again!");
+  return finalPassword = '';
+} else if (lengthInput = '') {
+  alert("Please enter a password length to start");
+  return finalPassword = '';
 } else {
   var includeLowerCase = confirm("Include Lowercase letters? Click ok to include, click cancel to not include");
   var includeUpperCase = confirm("Include Uppercase letters? Click ok to include, click cancel to not include");
@@ -37,7 +41,8 @@ function generatePassword() {
 
   //use if statement to return alert box in case no criteria is choosen
   if (includeLowerCase === false && includeUpperCase === false && includeNumber === false && includeSpecialChar === false) {
-    return alert("no criteria choosen!");
+    alert("no criteria chosen!");
+    return finalPassword = '';
   } else {
     //Declare variable that will hold all possible characters to draw from for password generation
     //for each password criteria response, if user response = true, add to charOptions variable, if false don't include

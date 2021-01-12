@@ -3,7 +3,13 @@ Random Password Generator
 
 This project called for the creation of a random password generator that could be used to generate a secure password based on criteria choosen by the user.
 
-The application has a simple, responsive interface with a single button for the user to click to generate a password. Upon clicking the button, a prompt box will ask the user to enter the desired password length (between 8 and 128 characters) followed by a series of confirm boxes to choose the character types to include (options are lowecase, uppercase, numbers and special characters). Once the user has chosen the desired criteria, the application will validate the input (make sure that a number has been entered for the length prompt and that it is between 8 and 128 characters, atleast one character types has been entered). 
+The application has a simple, responsive interface with a single button for the user to click to generate a password. Upon clicking the button, a prompt box will ask the user to enter the desired password length (between 8 and 128 characters) followed by a series of confirm boxes to choose the character types to include. The options are:
+-Lowecase letters 
+-Uppercase letters
+-Numbers
+-Special characters 
+
+Once the user has chosen the desired criteria, the application will validate the input (make sure that a number has been entered for the length prompt and that it is between 8 and 128 characters, and that atleast one character type has been entered). 
 
 Once valid input has been entered, the application will generate a random password that includes all the character types chosen by the user. The generated password will be displayed in the text box on the page. 
 
